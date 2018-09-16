@@ -17,7 +17,7 @@ Meteor.methods({
 
     // Send mail to contact
     Email.send({
-      from: 'moi.lerobot@heytoi.fr',
+      from: 'moi.lerobot@mail.heytoi.fr',
       to: email,
       subject: "Hey Toi, quelqu'un cherche à te contacter.",
       text: `Salut,
