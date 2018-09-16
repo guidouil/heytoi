@@ -1,0 +1,12 @@
+<template name="myChats">
+  {{#if myChats}}
+    <div class="ui center aligned segment">
+      <h3 class="ui header">Mes conversations</h3>
+      <div class="ui horizontal bulleted link list">
+        {{#each myChats}}
+          <a class="item" href="/c/{{this}}">{{this}}</a>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+</template>

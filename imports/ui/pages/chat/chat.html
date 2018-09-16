@@ -1,0 +1,76 @@
+<template name="chat">
+  <div class="ui raised secondary segment" id="chat">
+    {{#unless chat}}
+      <div class="ui active dimmer">
+        <div class="ui big text loader">Chargement</div>
+      </div>
+    {{else}}
+      {{#if chat.deleted}}
+        <h1 class="ui center aligned header">
+          Les {{chat.counter}} messages de cette conversation ont été effacés.
+          <div class="sub header">Plus de conversation entre toi et moi ici.</div>
+        </h1>
+      {{else}}
+        <div class="ui info message" id="chatInfo">
+          <i class="close icon" id="closeInfo"></i>
+          <div class="header">
+            Hey vous deux, ici on discute seulement à deux 😃
+          </div>
+          Ne passez pas votre lien à quelqu'un d'autre, cela lui permettrait de parler à votre place (vous êtes prévenus).
+        </div>
+        <button class="ui right floated red compact icon button" id="deleteMessages"><i class="trash icon"></i></button>
+        <div class="ui comments" id="comments">
+          {{#each chat.messages}}
+            <div class="comment">
+              <a class="avatar">
+                <img src="/img/{{from}}.png">
+              </a>
+              <div class="content">
+                <a class="author">{{from}}</a>
+                <div class="metadata">
+                  <span class="date">{{fromNow date}}</span>
+                </div>
+                <div class="text">
+                  {{text}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <div class="ui large basic modal" id="deleteMessagesModal">
+          <div class="ui icon header">
+            <i class="trash icon"></i>
+            Tu veux effacer les messages ?
+          </div>
+          <div class="content centerthis">
+            <p>Tous les messages de cette conversation seront supprimés immédiatement et définitivement. Es-tu sûr de vouloir mettre fin à cette conversation ?</p>
+          </div>
+          <div class="actions centerthis">
+            <div class="ui cancel inverted button">
+              <i class="undo icon"></i>
+              Non
+            </div>
+            <div class="ui red ok inverted button">
+              <i class="trash icon"></i>
+              Oui
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/unless}}
+  </div>
+
+  <div class="ui bottom fixed borderless inverted menu">
+    <div class="ui container">
+      <form class="ui form" id="newMessage">
+        <div class="field">
+          <div class="ui fluid icon input" id="messageInput">
+            <input type="text" name="message" id="message" placeholder="Dis quelque chose de gentil 🙂">
+            <i class="comment icon" id="newMessageIcon"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</template>
