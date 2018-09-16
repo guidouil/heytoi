@@ -32,7 +32,9 @@ Template.newContact.events({
       sAlert.warning('Cette adresse email n\'est pas valide.');
       return false;
     }
+    $('#newContactBtn').addClass('loading');
     Meteor.call('newChat', email, (error, me) => {
+      $('#newContactBtn').removeClass('loading');
       if (error) sAlert.error(error);
       if (me) {
         FlowRouter.go(`/c/${me}`);
