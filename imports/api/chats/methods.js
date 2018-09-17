@@ -18,6 +18,7 @@ Meteor.methods({
       you,
       deleted: false,
       messages: [{ from: 'Moi', text: 'Hey Toi', date: new Date() }],
+      counter: 1,
     });
 
     // Send mail to contact
