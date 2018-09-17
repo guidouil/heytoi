@@ -13,7 +13,12 @@ Meteor.methods({
 
     const me = Random.id();
     const you = Random.id();
-    Chats.insert({ me, you, deleted: false });
+    Chats.insert({
+      me,
+      you,
+      deleted: false,
+      messages: [{ from: 'Moi', text: 'Hey Toi', date: new Date() }],
+    });
 
     // Send mail to contact
     Email.send({
@@ -76,7 +81,6 @@ Moi le robot de HeyToi.fr`,
       },
     ]).toArray();
     return messagesPromise.then((messages) => {
-      console.log(messages);
       return {
         chatsCount,
         messagesCount: messages[0].messagesCount,
