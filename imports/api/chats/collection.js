@@ -42,6 +42,10 @@ const ChatSchema = new SimpleSchema({
     type: Number,
     optional: true,
   },
+  meIp: {
+    type: String,
+    optional: true,
+  },
   deleted: {
     type: Boolean,
   },

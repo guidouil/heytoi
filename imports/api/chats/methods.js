@@ -13,9 +13,11 @@ Meteor.methods({
 
     const me = Random.id();
     const you = Random.id();
+    const meIp = this.connection.clientAddress;
     Chats.insert({
       me,
       you,
+      meIp,
       deleted: false,
       messages: [{ from: 'Moi', text: 'Hey Toi', date: new Date() }],
       counter: 1,
@@ -54,6 +56,10 @@ Moi le robot de HeyToi.fr`,
     }
     if (token === chat.you) {
       message.from = 'Toi';
+    }
+    if (!chat.meIp && token === chat.me) {
+      const meIp = this.connection.clientAddress;
+      Chats.update({ _id: chat._id }, { $set: { meIp } });
     }
     return Chats.update({ _id: chat._id }, {
       $push: { messages: message },
