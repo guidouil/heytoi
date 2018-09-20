@@ -48,6 +48,7 @@ Template.chat.onRendered(() => {
           message: 'empty',
         },
       });
+      sAlert.info('NE PASSEZ PAS VOTRE LIEN À QUELQU\'UN D\'AUTRE, CELA LUI PERMETTRAIT DE PARLER À VOTRE PLACE (VOUS ÊTES PRÉVENUS).');
     }
   });
 });

@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+    "handlebars": "^4.0.12",
     "meteor-node-stubs": "^0.4.1",
+    "mjml": "^4.1.2",
     "moment": "^2.22.2",
     "postcss-load-config": "^1.2.0",
     "simpl-schema": "^1.5.3"
