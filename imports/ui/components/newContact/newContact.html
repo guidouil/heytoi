@@ -1,12 +1,13 @@
 <template name="newContact">
-  <div class="ui segment">
-    <form class="ui large form" id="newContact">
+  <div class="ui inverted center align segment">
+    <form class="ui huge form" id="newContact" autocomplete="off">
       <div class="field" id="emailField ">
-        <label for="email">Adresse de la personne à contacter</label>
-        <input type="email" name="email" id="email" placeholder="Email de ton contact">
+        <div class="ui inverted transparent input newContactInput">
+          <input class="centerthis" type="email" name="email" id="email" placeholder="Adresse email de la personne à contacter">
+        </div>
       </div>
       <div class="field">
-        <button type="submit" class="ui large primary fluid button" id="newContactBtn">
+        <button type="submit" class="ui huge circular white fluid button" id="newContactBtn">
           Envoie ta demande de conversation
         </button>
       </div>

@@ -1,5 +1,11 @@
 <template name="chat">
-  <div class="ui raised secondary segment" id="chat">
+  <div class="ui divider horizontal"></div>
+  <a href="/">
+    <img src="/img/hey-toi-rond.png" class="ui centered image">
+  </a>
+  <button class="ui right floated red circular basic icon button" id="deleteMessages" data-tooltip="Supprimer les messages" data-position="left center" data-inverted=""><i class="trash icon"></i></button>
+  <div class="ui divider horizontal clearing"></div>
+  <div class="ui raised segment" id="chat">
     {{#unless chat}}
       <div class="ui active dimmer">
         <div class="ui big text loader">Chargement</div>
@@ -11,14 +17,6 @@
           <div class="sub header">Plus de conversation entre toi et moi ici.</div>
         </h1>
       {{else}}
-        <div class="ui info message" id="chatInfo">
-          <i class="close icon" id="closeInfo"></i>
-          <div class="header">
-            Hey vous deux, ici on discute seulement à deux 😃
-          </div>
-          Ne passez pas votre lien à quelqu'un d'autre, cela lui permettrait de parler à votre place (vous êtes prévenus).
-        </div>
-        <button class="ui right floated red compact icon button" id="deleteMessages"><i class="trash icon"></i></button>
         <div class="ui comments" id="comments">
           {{#each chat.messages}}
             <div class="comment">
@@ -40,7 +38,8 @@
         <div class="ui large basic modal" id="deleteMessagesModal">
           <div class="ui icon header">
             <i class="trash icon"></i>
-            Tu veux effacer les messages ?
+            Hey Toi,<br>
+            Tu veux vraiment effacer les messages ?
           </div>
           <div class="content centerthis">
             <p>Tous les messages de cette conversation seront supprimés immédiatement et définitivement. Es-tu sûr de vouloir mettre fin à cette conversation ?</p>

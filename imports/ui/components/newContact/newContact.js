@@ -30,7 +30,7 @@ Template.newContact.events({
     if (!email || !validateEmail(email)) {
       $('#emailField').addClass('error');
       $('#newContact').addClass('error');
-      sAlert.warning('Cette adresse email n\'est pas valide.');
+      sAlert.error('CETTE ADRESSE EMAIL N‘EST PAS VALIDE.');
       return false;
     }
     $('#newContactBtn').addClass('loading');

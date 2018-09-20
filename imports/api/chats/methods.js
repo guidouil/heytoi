@@ -4,6 +4,8 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Random } from 'meteor/random';
 import { Email } from 'meteor/email';
+import MJML from '/imports/startup/server/mjml.js';
+import path from 'path';
 
 import Chats from './collection.js';
 
@@ -24,10 +26,15 @@ Meteor.methods({
     });
 
     // Send mail to contact
+    const emailTemplate = new MJML(path.resolve('./assets/app/mjml/mewContact.mjml'));
+    emailTemplate.helpers({ you });
+    const emailBody = emailTemplate.compile();
+    const { html } = emailBody;
     Email.send({
       from: 'moi.lerobot@mail.heytoi.fr',
       to: email,
       subject: "Hey Toi, quelqu'un cherche à te contacter.",
+      html,
       text: `Salut,
 Quelqu'un veut discuter avec toi et je n'ai pas le droit de te dire qui.\n
 Si tu es curieu·x·se, clique sur ce lien pour commencer la conversation (ou copie-le dans la barre d'adresse de ton navigateur).\n
