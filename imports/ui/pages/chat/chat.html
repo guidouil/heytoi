@@ -1,7 +1,7 @@
 <template name="chat">
   <div class="ui divider horizontal"></div>
   <a href="/">
-    <img src="/img/hey-toi-rond.png" class="ui centered image">
+    <img src="/img/rond.svg" class="ui centered small image">
   </a>
   <button class="ui right floated red circular basic icon button" id="deleteMessages" data-tooltip="Supprimer les messages" data-position="left center" data-inverted=""><i class="trash icon"></i></button>
   <div class="ui divider horizontal clearing"></div>
@@ -21,7 +21,7 @@
           {{#each chat.messages}}
             <div class="comment">
               <a class="avatar">
-                <img src="/img/{{from}}.png">
+                <img src="/img/{{from}}.svg">
               </a>
               <div class="content">
                 <a class="author">{{from}}</a>

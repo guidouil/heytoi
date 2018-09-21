@@ -78,7 +78,7 @@ Template.chat.events({
       if (error) sAlert.error(error);
       if (success) {
         $('#message').val('');
-        $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+        $('html, body').animate({ scrollTop: $(document).height() }, 500);
       }
     });
     return true;
